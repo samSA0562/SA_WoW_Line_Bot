@@ -1,0 +1,56 @@
+<style>
+	input[type="text"]
+	{
+	width:500px;
+	padding:5px; 
+	border:1px black solid;
+	cursor:pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+	}
+	
+	input[type="submit"]
+	{
+	border-radius: 15px;
+	}
+	input
+	{
+	font-family: 微軟正黑體;
+	}
+</style>
+<form action="/cmdSend" method="get" enctype="multipart/form-data">
+    <h2>Line Message API</h2>
+	<a href="https://developers.line.biz/en/reference/messaging-api/#text-message">文字格式</a>：Max: 2000 characters, Unicode emoji, <a href="https://developers.line.biz/media/messaging-api/emoji-list.pdf">LINE original emoji</a>.<br>
+	<a href="https://developers.line.biz/en/reference/messaging-api/#sticker-message">貼圖格式</a>：Only <a href="https://developers.line.biz/media/messaging-api/sticker_list.pdf">sticker list</a>.<br>
+	<a href="https://developers.line.biz/en/reference/messaging-api/#image-message">圖片格式</a>：Max: 1000 characters, JPEG, Original Max 1024X1024 and Max 1MB, Preview Max 240X240 and Max 1MB.<br>
+	<br>
+	<b>對象</b><br>
+	Target ID : <input type="text" name="User" value="C05d787f458a6d3341b1754f950f33a09"><br>
+	<Select name="msgType" onchange="setDisabled()">
+		<option value="text" selected>文字</option>
+		<option value="sticker">貼圖</option>
+		<option value="image">圖片</option>
+	</select><br>
+	<b>文字</b><br>
+	Text：<input type="text" name="text" value=""><br>
+	<b>貼圖</b><br>
+	Package ID：<input type="text" name="sticker" value="52114122" disabled><br>
+	Sticker ID：<input type="text" name="sticker" value="11539" disabled><br>
+	<b>圖片</b><br>
+	Original Content URL：<input type="text" name="image" value="https://i.imgur.com/LU1m6K5.jpg" disabled><br>
+	Preview Image URL：<input type="text" name="image" value="https://i.imgur.com/LU1m6K5.jpg" disabled><br>
+    <input type="submit">
+</form>
+<script>
+function setDisabled() {
+	var text = document.getElementsByName("text"),
+		sticker = document.getElementsByName("sticker"),
+		image = document.getElementsByName("image");
+	for (i=0; i<text.length; i++)
+		text[i].disabled = document.getElementsByName("msgType")[0].value != "text";
+	for (j=0; j<sticker.length; j++)
+		sticker[j].disabled = document.getElementsByName("msgType")[0].value != "sticker";
+	for (k=0; k<image.length; k++)
+		image[k].disabled = document.getElementsByName("msgType")[0].value != "image";
+}
+</script>

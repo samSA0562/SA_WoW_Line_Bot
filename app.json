@@ -1,0 +1,17 @@
+{
+	"name": "LineBot",
+	"description": "LineBot",
+	"repository": "https://github.com/samSA0562/LineBot",
+	"keywords": ["Line Bot"],
+	"env": {
+		"LINE_CHANNEL_SECRET": {
+			"description": "LINE_Channel_Secret"
+		},
+		"LINE_CHANNEL_ACCESSTOKEN": {
+			"description": "LINE_Channel_Accesstoken"
+		},
+		"KEY_WORD": {
+			"description": "Line Bot"
+		}
+	}
+}
