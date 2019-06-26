@@ -1,7 +1,7 @@
 {
-  "name": "LineBot",
+  "name": "SA WoW LineBot",
   "version": "1.0.0",
-  "description": "Line Bot",
+  "description": "SA Wow Line Bot",
   "engines": {
     "node": "7.6.0"
   },
